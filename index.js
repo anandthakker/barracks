@@ -127,6 +127,11 @@ function dispatcher (handlers) {
               }
             })
           }
+
+          // If send() was called with a callback, then also call it. Note that
+          // with callOnError === true, this only works if the callback is the
+          // third parameter.
+          if (cb) { cb(err) }
         }
       }
     }
